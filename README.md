@@ -43,7 +43,7 @@ ng version
 Créer un nouveau projet Angular :
 
 ```bash
-ng new mon-projet
+ng new mon-projet --defaults
 ```
 
 Le terminal demandera :
@@ -64,7 +64,8 @@ cd mon-projet
 Démarrer le serveur de développement :
 
 ```bash
-ng serve
+npm run start
+ng serve -o
 ```
 
 Application accessible sur :
