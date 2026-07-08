@@ -533,7 +533,6 @@ form{
 }
 ```
 
-
 Dans le *login.ts* :
 
 ```bash
@@ -545,10 +544,21 @@ export class LoginComponent {
   login() { this.isActive = false; }
 }
 ```
+Dans app.route.ts :
 
+```bash
+import { Routes } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
+import { GestionUserComponent } from './gestion-user/gestion-user.component';
 
-
-
+export const routes: Routes = [
+  { path: 'header', component: HeaderComponent},
+  { path: 'gestion-user', component: GestionUserComponent},
+  { path: 'login', component: LoginComponent},
+  { path: '', redirectTo:'login', pathMatch:'full'}
+];
+```
 
 Créer un service :
 
