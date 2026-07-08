@@ -559,6 +559,17 @@ export const routes: Routes = [
   { path: '', redirectTo:'login', pathMatch:'full'}
 ];
 ```
+Ajouter dans tout les fichers *.ts*:
+
+```bash
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [RouterLink, RouterOutlet],
+  ```
 
 Créer un service :
 
