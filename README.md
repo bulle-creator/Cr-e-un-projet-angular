@@ -88,7 +88,6 @@ mon-projet/
 ├── package.json
 └── tsconfig.json
 ```
-
 ---
 
 # Commandes utiles
@@ -96,14 +95,107 @@ mon-projet/
 Créer un composant :
 
 ```bash
-ng generate component mon-composant
+ng generate component hearder
 ```
 
 Version courte :
 
 ```bash
-ng g c mon-composant
+ng g c header
 ```
+
+Dans le *header.html* :
+
+```bash
+<header>
+  <meta charset="utf-8">
+  <title>Projet Angular</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <div class="container">
+    <a href="" routerLink= "/" class="logo">Projet Angular</a>
+    <nav>
+      <ul>
+        <li>
+          <a href="" routerLink="/" routerLinkActive="active">Menu</a>
+          <a href="" routerLink="/gestion-user" routerLinkActive="active">Gestion Utilisateur</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+```
+
+Dans le *header.css* :
+
+```bash
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+header{
+  background: white;
+  padding:0;
+  border-bottom: 1px solid #7994E7;
+
+}
+a{
+  color:  #7994E7;
+}
+
+a:hover{
+  background: #7994E7;
+  color:white;
+}
+
+.container{
+  margin: 0 auto;
+  display: flex;
+  justify-content:space-between ;
+}
+
+a.logo{
+  font-weight: bold;
+  padding: 1em;
+}
+
+nav ul{
+  list-style-type: none;
+  margin:0;
+}
+
+nav ul li a {
+  padding: 1em;
+  display:inline-block ;
+}
+```
+Ensuite dans fichier *style.css* entre:
+
+```bash
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+html,button{
+  font-family: "Quicksand", "sans-serif";
+}
+
+body{
+  margin: 0;
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 Créer un service :
 
