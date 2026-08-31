@@ -543,7 +543,7 @@ export class LoginComponent {
   login() { this.isActive = false; }
 }
 ```
-Dans app.route.ts :
+Dans *app.route.ts* :
 
 ```bash
 import { Routes } from '@angular/router';
