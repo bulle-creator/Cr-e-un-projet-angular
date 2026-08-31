@@ -221,16 +221,16 @@ Dans le *login.html* :
             <form action="">
                 <h1>Registration</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Name and Lastname" require>
+                    <input type="text" placeholder="Name" require>
                     <i class='bx bx-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Username" require>
+                    <input type="text" placeholder="Last-name" require>
                     <i class='bx bx-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Telephhone" require>
-                    <i class='bx bx-user'></i>
+                    <input type="text" placeholder="Telephone" require>
+                    <i class='bx bx-phone'></i>
                 </div>
                 <div class="input-box">
                     <input type="email" placeholder="Email" require>
@@ -240,7 +240,6 @@ Dans le *login.html* :
                     <input type="password" placeholder="Password" require>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-
 
                   <button type="submit" class="btn">Register</button>
             </form>
@@ -570,6 +569,303 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterLink, RouterOutlet],
   ```
+Dans le ficher *gestion-user.html* ajouter:
+
+```bash
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+
+<div class="center">
+    <div class="container">
+        <div class="from-box login">
+            <form action="">
+                <h1>Gestion d'utilisateurs</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Nom" require>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Prenom" require>
+                    <i class='bx bxs-user' ></i>
+                </div>
+                  <div class="input-box">
+                    <input type="password" placeholder="Telephone" require>
+                    <i class='bx bxs-phone' ></i>
+                </div>
+                  <div class="input-box">
+                    <input type="password" placeholder="Email" require>
+                    <i class='bx bxs-envelope' ></i>
+                </div>
+
+                <div class="align-sign">
+                  <a><button type="submit" class="btn">Ajouter</button></a>
+                  <a><button type="submit" class="btn">Supprimer</button></a>
+                </div>
+            </form>
+        </div>
+```
+Dans le ficher *gestion-user.css* ajouter:
+```bash
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    position: relative;
+    width: 550px;
+    height: 550px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    margin: 20px;
+    overflow: hidden;
+}
+
+.from-box{
+    right: 0;
+    width: 90%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-align: center;
+    padding: 40px;
+    z-index: 1;
+    transition: .6s ease-in-out 1.2s, visibility 0s 1s ;
+}
+
+.container.active .from-box{
+    right: 50%;
+}
+
+
+
+.container.active .from-box.register{
+    visibility: visible;
+}
+
+form{
+    width: 100%;
+}
+
+.container h1{
+    font-size: 36px;
+    margin: -10px 0;
+}
+
+.input-box{
+    position: relative;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 13px 50px 13px 20px;
+    background: #eee;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.input-box input::placeholder {
+    color: #888;
+    font-weight: 400;
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+.forgot-link{
+    margin: -15px 0 15px;
+}
+
+.forgot-link a{
+    font-size: 14.5px;
+    color: #333;
+    text-decoration: none;
+}
+
+.align-sign{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.btn{
+    width: 100%;
+    height: 48px;
+    background: #7994E7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.container p{
+    font-size: 14.5px;
+    margin: 15px 0;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons a{
+    display: inline-flex;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.toggle-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.toggle-box::before{
+    content: '';
+    position: absolute;
+    left: -250%;
+    width: 300%;
+    height: 100%;
+    background: #7494ec;
+    border-radius: 150px;
+    z-index: 2;
+    transition: 1s ease-in-out;
+}
+
+.container.active .toggle-box::before {
+    left: 50%;
+}
+
+
+.toggle-panel.toggle-left {
+    left: 0;
+    transition-delay: 1s;
+}
+
+.container.active .toggle-panel.toggle-left {
+    left: -50%;
+    transition-delay: .5s;
+}
+
+
+.toggle-panel.toggle-right {
+    right: -50%;
+    transition-delay: .5s;
+}
+
+.container.active .toggle-panel.toggle-right {
+    right: 0;
+    transition-delay: 1s;
+}
+
+.toggle-panel p{
+    margin-bottom: 20px;
+}
+
+.toggle-panel .btn{
+    width: 160px;
+    height: 46px;
+    background: transparent;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
+
+@media screen and (max-width:650px)  {
+    .container{
+        height: calc(100vh - 40px);
+    }
+
+    .from-box{
+        bottom: 0;
+        width: 100%;
+        height: 70%;
+    }
+
+    .container.active .from-box{
+        right: 0;
+        bottom: 30%;
+    }
+
+    .toggle-box::before{
+        left: 0;
+        top: -270%;
+        width: 100%;
+        height: 300%;
+        border-radius: 20vw;
+    }
+
+    .container.active .toggle-box::before{
+        left: 0;
+        top: 70%;
+    }
+
+    .toggle-panel{
+        width: 100%;
+        height: 30%;
+    }
+
+    .toggle-panel.toggle-left{
+        top: 0;
+    }
+
+    .container.active .toggle-panel.toggle-left{
+        left: 0;
+        top: -30%;
+    }
+
+    .toggle-panel.toggle-right{
+        right: 0;
+        bottom: -30%;
+    }
+
+    .container.active .toggle-panel.toggle-right{
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width: 400px)  {
+    .from-box{
+        padding: 20px;
+    }
+    .toggle-panel h1{
+        font-size: 30px;
+    }
+}
+/*Fin du style pour le login et register*/
+
+
+```
+
 
 Créer un service :
 
